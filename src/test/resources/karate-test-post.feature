@@ -9,6 +9,9 @@ Feature: Test de API para métodos POST
     When method POST
     Then status 201
     And print response
+    And match response.name == "Iron Man Pedro"
+    And match response.alterego == "Genius billionaire"
+    And match response.description == "Tony Stark"
 
   Scenario: T-API-HU-001-CA5-Crear personaje (nombre duplicado)
     * header content-type = 'application/json'
@@ -29,6 +32,6 @@ Feature: Test de API para métodos POST
     Then status 400
     And print response
     And match response.name == "Name is required"
+    And match response.alterego == "Alterego is required"
     And match response.description == "Description is required"
     And match response.powers == "Powers are required"
-    And match response.alterego == "Alterego is required"
