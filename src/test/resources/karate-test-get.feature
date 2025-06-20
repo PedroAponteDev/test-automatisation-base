@@ -1,12 +1,14 @@
 @REQ_HU-0001
 Feature: Test de API para métodos GET
 
+  @id:1 @obtenerPersonajes
   Scenario: T-API-HU-001-CA1-Obtener todos los personajes
     Given url 'http://bp-se-test-cabcd9b246a5.herokuapp.com/testuser/api/characters'
     When method get
     Then status 200
     And print response
 
+  @id:2 @obtenerPersonajePorId
   Scenario: T-API-HU-001-CA2-Obtener personaje por ID (exitoso)
     Given url 'http://bp-se-test-cabcd9b246a5.herokuapp.com/testuser/api/characters/30'
     When method get
@@ -14,6 +16,7 @@ Feature: Test de API para métodos GET
     And match response.id == 30
     And print response
 
+  @id:3 @obtenerPersonajePorIdNoExiste
   Scenario: T-API-HU-001-CA3-Obtener personaje por ID (no existe)
     Given url 'http://bp-se-test-cabcd9b246a5.herokuapp.com/testuser/api/characters/999'
     When method get
