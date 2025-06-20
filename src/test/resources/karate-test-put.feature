@@ -10,6 +10,9 @@ Feature: Test de API para métodos PUT
     When method PUT
     Then status 200
     And print response
+    And match response.name == "Iron Man Pedro"
+    And match response.alterego == "Tony Stark"
+    And match response.description == "Updated description"
 
   @id:2 @actualizarPersonajeNoExiste
   Scenario: T-API-HU-001-CA8-Actualizar personaje (no existe)
